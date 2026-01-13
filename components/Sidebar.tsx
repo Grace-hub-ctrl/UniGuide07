@@ -1,8 +1,9 @@
 
 import React from 'react';
-import { Section } from '../types';
+import { Section, UserProfile } from '../types';
 
 interface SidebarProps {
+  profile: UserProfile;
   activeSection: Section;
   onNavigate: (section: Section) => void;
   isOpen: boolean;
@@ -10,7 +11,7 @@ interface SidebarProps {
   onLogout: () => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate, isOpen, onClose, onLogout }) => {
+const Sidebar: React.FC<SidebarProps> = ({ profile, activeSection, onNavigate, isOpen, onClose, onLogout }) => {
   const navItems: { id: Section; label: string; icon: string }[] = [
     { id: 'dashboard', label: 'Dashboard', icon: 'fa-gauge' },
     { id: 'scholarships', label: 'Scholarships', icon: 'fa-graduation-cap' },
@@ -78,11 +79,13 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate, isOpen, on
             </button>
           </div>
           
-          <div className="flex items-center gap-3 p-2">
-            <img src="https://picsum.photos/seed/current/40/40" className="w-8 h-8 rounded-full border border-slate-700" alt="avatar" />
+          <div className="flex items-center gap-3 p-2 bg-slate-800/30 rounded-2xl border border-white/5">
+            <div className="w-10 h-10 bg-gradient-to-tr from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white border border-slate-700">
+               <i className="fa-solid fa-user-graduate"></i>
+            </div>
             <div className="min-w-0">
-              <p className="text-xs font-bold text-white truncate">Student Account</p>
-              <p className="text-[10px] text-slate-500 truncate">Academic Year 2026</p>
+              <p className="text-xs font-bold text-white truncate">{profile.name || 'Student Account'}</p>
+              <p className="text-[10px] text-blue-400 font-bold truncate tracking-tight">Academic Year 2026</p>
             </div>
           </div>
         </div>

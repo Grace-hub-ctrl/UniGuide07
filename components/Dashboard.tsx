@@ -22,10 +22,13 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, profile }) => {
     <div className="space-y-8 pb-12">
       <header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
-            {profile.name ? `Hello, ${profile.name.split(' ')[0]}!` : 'Welcome to UniGuide!'}
-          </h1>
-          <p className="text-slate-500 mt-1 text-sm md:text-base">
+          <div className="flex items-center gap-3 mb-1">
+            <h1 className="text-2xl md:text-3xl font-bold text-slate-900">
+              {profile.name ? `Hello, ${profile.name.split(' ')[0]}!` : 'Welcome to UniGuide!'}
+            </h1>
+            <span className="px-3 py-1 bg-blue-600 text-white text-[10px] font-black rounded-full uppercase tracking-[0.1em] shadow-lg shadow-blue-500/20">Class of 2026</span>
+          </div>
+          <p className="text-slate-500 text-sm md:text-base">
             Your journey to the perfect university starts here.
           </p>
         </div>
@@ -44,7 +47,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, profile }) => {
         <ActionCard
           icon="fa-graduation-cap"
           title="Scholarships"
-          desc={`Discover targeted funding`}
+          desc={`Discover 2026 funding`}
           color="blue"
           onClick={() => onNavigate('scholarships')}
         />
@@ -75,7 +78,7 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, profile }) => {
         <div className="lg:col-span-2 bg-white p-4 md:p-8 rounded-[2rem] shadow-sm border border-slate-200">
           <div className="flex items-center justify-between mb-6">
             <h3 className="font-bold text-lg text-slate-800">Admission Probability Index</h3>
-            <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded uppercase tracking-widest">Live Forecast</span>
+            <span className="text-[10px] font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded uppercase tracking-widest">Live 2026 Forecast</span>
           </div>
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
@@ -96,14 +99,14 @@ const Dashboard: React.FC<DashboardProps> = ({ onNavigate, profile }) => {
             </ResponsiveContainer>
           </div>
           <p className="text-[10px] text-slate-400 mt-4 text-center leading-relaxed">
-            Forecasted based on your {profile.gpa || '3.5 (default)'} GPA and {profile.major || 'general'} focus.
+            Forecasted based on your {profile.gpa || '3.5 (default)'} GPA and {profile.major || 'general'} focus for the 2026 cycle.
           </p>
         </div>
 
         <div className="bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-200">
           <h3 className="font-bold text-lg text-slate-800 mb-6 flex items-center gap-2">
             <i className="fa-solid fa-bell text-blue-500 text-sm"></i>
-            Deadlines
+            Deadlines 2026
           </h3>
           <div className="space-y-3">
             <DeadlineItem title="Common App Early" date="Nov 01, 2026" days={410} />

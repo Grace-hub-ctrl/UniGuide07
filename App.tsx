@@ -78,6 +78,7 @@ const App: React.FC = () => {
   return (
     <div className="flex h-screen overflow-hidden bg-slate-50 relative">
       <Sidebar 
+        profile={userProfile}
         activeSection={activeSection} 
         onNavigate={(s) => { setActiveSection(s); setIsSidebarOpen(false); }} 
         isOpen={isSidebarOpen}

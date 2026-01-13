@@ -18,19 +18,19 @@ const SAMPLE_SCHOLARSHIPS: Scholarship[] = [
     link: "https://example.com/global-excellence"
   },
   {
-    name: "STEM Innovation Award",
+    name: "STEM Innovation Award 2026",
     provider: "Tech Future Foundation",
     amount: "$10,000",
     deadline: "January 30, 2026",
-    eligibility: "Students planning to major in CS, Engineering, or Math. Must demonstrate significant project experience.",
+    eligibility: "Students planning to major in CS, Engineering, or Math in the 2026 academic year.",
     link: "https://example.com/stem-award"
   },
   {
-    name: "Community Leaders Grant",
+    name: "Future Leaders Community Grant",
     provider: "Civic Outreach Group",
     amount: "$5,000",
     deadline: "May 01, 2026",
-    eligibility: "Open to HS Seniors with over 100 hours of documented community service and leadership roles.",
+    eligibility: "Open to Class of 2026 Seniors with significant leadership roles and 100+ volunteer hours.",
     link: "https://example.com/community-grant"
   }
 ];
@@ -44,7 +44,7 @@ const Scholarships: React.FC<ScholarshipsProps> = ({ profile }) => {
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
-    const finalQuery = `${query} for 2026 ${profile.isProfileComplete ? `Context: Grade ${profile.grade}, GPA ${profile.gpa}, Major ${profile.major}, Location ${profile.location}` : ''}`;
+    const finalQuery = `${query} for 2026 entry ${profile.isProfileComplete ? `Context: Grade ${profile.grade}, GPA ${profile.gpa}, Major ${profile.major}, Location ${profile.location}` : ''}`;
     
     setLoading(true);
     setHasSearched(true);
@@ -60,9 +60,9 @@ const Scholarships: React.FC<ScholarshipsProps> = ({ profile }) => {
     <div className="space-y-8">
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <div className="max-w-xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Scholarship Finder</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900">Scholarship Finder 2026</h2>
           <p className="text-slate-500 mt-2 text-sm">
-            Gemini scans real-time data for 2026 grants matching your unique profile.
+            Gemini scans real-time data for grants targeting the 2026 academic cycle.
           </p>
         </div>
         <form onSubmit={handleSearch} className="flex-1 max-w-2xl flex flex-col sm:flex-row gap-2">
@@ -70,7 +70,7 @@ const Scholarships: React.FC<ScholarshipsProps> = ({ profile }) => {
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
-            placeholder="Special traits? (e.g. First-gen, local artist 2026)"
+            placeholder="Search traits (e.g. First-gen, STEM, Art 2026)"
             className="flex-1 px-5 py-4 rounded-2xl border border-slate-200 focus:ring-2 focus:ring-blue-500 outline-none transition-all shadow-sm"
           />
           <button
@@ -88,7 +88,7 @@ const Scholarships: React.FC<ScholarshipsProps> = ({ profile }) => {
       {!hasSearched && (
         <div className="flex items-center gap-2 mb-4">
           <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Featured 2026 Opportunities</h3>
+          <h3 className="text-xs font-bold text-slate-400 uppercase tracking-widest">Featured 2026 Scholarships</h3>
         </div>
       )}
 
@@ -113,7 +113,7 @@ const Scholarships: React.FC<ScholarshipsProps> = ({ profile }) => {
               rel="noopener noreferrer"
               className="w-full py-3 bg-slate-900 text-white text-center font-bold text-xs rounded-xl hover:bg-slate-800 transition-colors"
             >
-              View Application <i className="fa-solid fa-external-link ml-2 text-[10px]"></i>
+              Apply Now <i className="fa-solid fa-external-link ml-2 text-[10px]"></i>
             </a>
           </div>
         ))}
@@ -139,18 +139,6 @@ const Scholarships: React.FC<ScholarshipsProps> = ({ profile }) => {
               </a>
             ))}
           </div>
-        </div>
-      )}
-
-      {hasSearched && !loading && results.length === 0 && (
-        <div className="py-24 text-center">
-          <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
-            <i className="fa-solid fa-magnifying-glass-dollar text-slate-300 text-3xl"></i>
-          </div>
-          <h3 className="text-slate-900 font-bold text-xl">No awards found for this query</h3>
-          <p className="text-slate-500 max-w-sm mx-auto mt-2 text-sm leading-relaxed">
-            Try adjusting your search terms to find more 2026 scholarships.
-          </p>
         </div>
       )}
     </div>
