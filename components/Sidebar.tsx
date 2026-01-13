@@ -82,7 +82,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeSection, onNavigate, isOpen, on
             <img src="https://picsum.photos/seed/current/40/40" className="w-8 h-8 rounded-full border border-slate-700" alt="avatar" />
             <div className="min-w-0">
               <p className="text-xs font-bold text-white truncate">Student Account</p>
-              <p className="text-[10px] text-slate-500 truncate">Academic Year 2024</p>
+              <p className="text-[10px] text-slate-500 truncate">Academic Year 2026</p>
             </div>
           </div>
         </div>
